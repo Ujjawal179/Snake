@@ -1,2 +1,2 @@
 # Snake
-The simple snake game writing by 2 hour.
+The simple snake game written in 3 hour.
