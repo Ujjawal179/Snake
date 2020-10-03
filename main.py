@@ -50,9 +50,7 @@ def main():
     # координаты яблока
     apple_x = round(random.randrange(0, width - snake_size) / 10.0) * 10.0
     apple_y = round(random.randrange(0, height - snake_size) / 10.0) * 10.0
-
-    running = True
-    while running:  # цикл игры
+    while True:  # цикл игры
 
         for event in pygame.event.get():
             # проверить закрытие окна
@@ -75,7 +73,7 @@ def main():
 
         # конец игры если выйдешь за края
         if x1 >= width or x1 < 0 or y1 >= height or y1 < 0:
-            running = False
+            Break
 
         x1 += x1_change
         y1 += y1_change
@@ -91,7 +89,7 @@ def main():
 
         for x in snake_list[:-1]:
             if x == snake_head:
-                running = False
+                Break
 
         snake(snake_size, snake_list)
         score(lenght - 1)
@@ -111,8 +109,7 @@ def main():
 
     while True:
         for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    main()
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+                main()
             else:
                 pygame.quit()
